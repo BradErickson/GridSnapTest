@@ -18,6 +18,11 @@ export class AppComponent {
     {id: 5}
   ];
 
+  something = [
+    {id: 6},
+    {id: 7}
+  ]
+
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);

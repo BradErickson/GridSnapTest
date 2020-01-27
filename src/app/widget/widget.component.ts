@@ -34,6 +34,16 @@ export class WidgetComponent implements OnInit {
       name: 'widget 5',
       description: 'some type of description in here.'
     },
+    {
+      id: 6,
+      name: 'widget 6',
+      description: 'some type of description in here.'
+    },
+    {
+      id: 7,
+      name: 'widget 7',
+      description: 'some type of description in here.'
+    },
   ]
   constructor() { }
 
