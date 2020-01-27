@@ -12,7 +12,7 @@ export class WidgetComponent implements OnInit {
     {
       id: 1,
       name: 'widget 1',
-      description: 'some type of description in here. some type of description in here. some type of description in here. some type of description in here. some type of description in here. some type of description in here. some type of description in here. some type of description in here. some type of description in here. some type of description in here. some type of description in here. some type of description in here. some type of description in here. '
+      description: 'some type of description in here. some type of description in here.'
     },
     {
       id: 2,
@@ -43,6 +43,11 @@ export class WidgetComponent implements OnInit {
       id: 7,
       name: 'widget 7',
       description: 'some type of description in here.'
+    },
+    {
+      id: 8,
+      name: 'widget 8',
+      description: 'Added with button press.'
     },
   ]
   constructor() { }

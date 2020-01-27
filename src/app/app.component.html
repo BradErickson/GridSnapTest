@@ -1,39 +1,29 @@
+<button class="btn btn-primary" (click)="addWidget()">Add Widget</button>
+
 <div class="example-container">
   <div class="flex-thing">
-  <h2>To do</h2>
-  <div
-    cdkDropList
-    #todoList="cdkDropList"
-    [cdkDropListData]="todo"
-    [cdkDropListConnectedTo]="[doneList, somethingList]"
-    class="example-list"
-    (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let item of todo" cdkDrag><app-widget [testingItemId]="item"></app-widget></div>
+      <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo"
+      [cdkDropListConnectedTo]="[doneList, somethingList]" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of todo" [ngStyle]="{'width': item.sizeMin}" cdkDrag>
+        <app-widget [testingItemId]="item"></app-widget>
+      </div>
+    </div>
+  </div>
+  <div class="flex-thing">
+    <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done"
+      [cdkDropListConnectedTo]="[todoList, somethingList]" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box"  *ngFor="let item of done" [ngStyle]="{'width': item.sizeMin}" cdkDrag >
+        <app-widget [testingItemId]="item"></app-widget>
+      </div>
+    </div>
+  </div>
+  <div class="flex-thing">
+    <div cdkDropList #somethingList="cdkDropList" [cdkDropListData]="something"
+      [cdkDropListConnectedTo]="[doneList, todoList]" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of something"
+      [ngStyle]="{'width': item.sizeMin}" cdkDrag>
+        <app-widget [testingItemId]="item"></app-widget>
+      </div>
+    </div>
   </div>
 </div>
-<div class="flex-thing">
-  <h2>Done</h2>
-  <div
-    cdkDropList
-    #doneList="cdkDropList"
-    [cdkDropListData]="done"
-    [cdkDropListConnectedTo]="[todoList, somethingList]"
-    class="example-list"
-    (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let item of done" cdkDrag><app-widget [testingItemId]="item"></app-widget></div>
-  </div>
-</div>
-<div class="flex-thing">
-  <h2>Other</h2>
-  <div
-    cdkDropList
-    #somethingList="cdkDropList"
-    [cdkDropListData]="something"
-    [cdkDropListConnectedTo]="[doneList, todoList]"
-    class="example-list"
-    (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let item of something" cdkDrag><app-widget [testingItemId]="item"></app-widget></div>
-  </div>
-</div>
-</div>
-
