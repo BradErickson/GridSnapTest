@@ -1,29 +1,35 @@
 <button class="btn btn-primary" (click)="addWidget()">Add Widget</button>
+<button class="btn btn-secondary" (click)="setCanEdit()">Can Edit</button>
+<div>Can Edit: {{canEdit}}</div>
 
 <div class="example-container">
   <div class="flex-thing">
-      <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo"
+      <div cdkDropList [cdkDropListDisabled]="!canEdit" #todoList="cdkDropList" [cdkDropListData]="todo"
       [cdkDropListConnectedTo]="[doneList, somethingList]" class="example-list" (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of todo" [ngStyle]="{'width': item.sizeMin}" cdkDrag>
+      <div class="example-box" *ngFor="let item of todo" [ngStyle]="{'width': item.sizeMin, 'height': item.sizeMin}" cdkDrag>
         <app-widget [testingItemId]="item"></app-widget>
       </div>
     </div>
   </div>
   <div class="flex-thing">
-    <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done"
+    <div cdkDropList [cdkDropListDisabled]="!canEdit" #doneList="cdkDropList" [cdkDropListData]="done"
       [cdkDropListConnectedTo]="[todoList, somethingList]" class="example-list" (cdkDropListDropped)="drop($event)">
-      <div class="example-box"  *ngFor="let item of done" [ngStyle]="{'width': item.sizeMin}" cdkDrag >
+      <div class="example-box"  *ngFor="let item of done" [ngStyle]="{'width': item.sizeMin, 'height': item.sizeMin}" cdkDrag >
         <app-widget [testingItemId]="item"></app-widget>
       </div>
     </div>
   </div>
   <div class="flex-thing">
-    <div cdkDropList #somethingList="cdkDropList" [cdkDropListData]="something"
+    <div cdkDropList [cdkDropListDisabled]="!canEdit" #somethingList="cdkDropList" [cdkDropListData]="something"
       [cdkDropListConnectedTo]="[doneList, todoList]" class="example-list" (cdkDropListDropped)="drop($event)">
       <div class="example-box" *ngFor="let item of something"
-      [ngStyle]="{'width': item.sizeMin}" cdkDrag>
+      [ngStyle]="{'width': item.sizeMin, 'height': item.sizeMin}" cdkDrag>
         <app-widget [testingItemId]="item"></app-widget>
       </div>
     </div>
   </div>
+
+
+
+  
 </div>

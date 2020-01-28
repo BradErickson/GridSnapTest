@@ -7,46 +7,52 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  public canEdit: boolean = false;
   todo = [
     {
       id: 1,
-      sizeMin: '300px'
+      sizeMin: '600px'
     },
     {
       id: 2,
-      sizeMin: '500px'
+      sizeMin: '600px'
     },
     {
       id: 3,
-      sizeMin: '300px'
+      sizeMin: '600px'
     }
   ];
 
   done = [
     {
       id: 4,
-      sizeMin: '300px'
+      sizeMin: '275px'
     },
     {
       id: 5,
-      sizeMin: '500px'
+      sizeMin: '275px'
     }
   ];
 
   something = [
     {
       id: 6,
-      sizeMin: '300px'
+      sizeMin: '600px'
     },
     {
       id: 7,
-      sizeMin: '300px'
+      sizeMin: '600px'
     }
   ]
   
   addWidget() {
-    this.something.push({id: 8, sizeMin: '500px'});
+    this.something.push({id: 8, sizeMin: '600px'});
   }
+  
+  setCanEdit() {
+    this.canEdit = !this.canEdit;
+  }
+
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
